@@ -35,15 +35,15 @@
                 <div class="card-content">
                     <button class="button is-primary" @click="getQuestion()">Refresh Question</button>
                     <p class="title">
-                        
+                        {{question.question}}
                     </p>
                     <p class="subtitle">
-                        
+                        {{ question.category.title }}
                     </p>
                 </div>
                 <footer class="card-footer">
                     <p class="card-footer-item">
-                        <span>Correct answer: </span>
+                        <span>Correct answer: {{ question.answer }}</span>
                     </p>
                 </footer>
             </div>
