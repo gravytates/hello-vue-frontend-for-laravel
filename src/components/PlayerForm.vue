@@ -31,7 +31,7 @@
                 this.postPlayer()
             },
             async postPlayer() {
-                axios.defaults.header.common['Authorization'] = `Bearer ${await this.$auth.getAccessToken()}`
+                axios.defaults.headers.common['Authorization'] = `Bearer ${await this.$auth.getAccessToken()}`
                 axios.post(API_BASE_URL + '/players', this.$data)
                     .then(response => {
                         this.name = ''
@@ -39,7 +39,8 @@
                         this.$emit('completed', response.data.data)
                     })
                     .catch(error => {
-                        this.errors = error.response.data.errorsthis.isLoading = false
+                        this.errors = error.response.data.errors
+                        this.isLoading = false
                     })
             }
         }
