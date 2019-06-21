@@ -26,7 +26,7 @@ import Axios from "axios";
                     </template>
                 </tbody>
             </table>
-            <a class="button is-primary">Add Player</a>
+            <player-form @completed="addPlayer"></player-form>
         </div>
     </div>
 </template>
@@ -34,14 +34,20 @@ import Axios from "axios";
 <script>
     import axios from 'axios'
     import { API_BASE_URL } from '../config'
+    import PlayerForm from './PlayerForm.vue'
 
     export default {
+        components: {
+            PlayerForm
+        },
+
         data() {
             return {
                 isLoading: true,
                 players: {}
             }
         },
+
         async created () {
             axios.defaults.headers.common['Authorization'] = `Bearer ${await this.$auth.getAccessToken()}`
             try {
@@ -50,6 +56,12 @@ import Axios from "axios";
                 this.isLoading = false
             } catch (e) {
                 //error handling
+            }
+        },
+
+        methods: {
+            addPlayer(player) {
+                this.players.push(player)
             }
         }
     }

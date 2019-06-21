@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Dashboard from './components/Dashboard.vue';
-import Auth from '@okta/okta-vue';
-import TriviaGame from './components/TriviaGame.vue';
+import Dashboard from './components/Dashboard.vue'
+import Auth from '@okta/okta-vue'
+import TriviaGame from './components/TriviaGame.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
